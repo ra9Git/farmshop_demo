@@ -1,0 +1,499 @@
+/* ========================================
+   Farm Shop 店舗管理
+   共通デザイン：common.css に合わせる
+   ======================================== */
+
+.stores-app {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: transparent;
+  font-family: inherit;
+}
+
+.stores-app *,
+.stores-app *::before,
+.stores-app *::after {
+  box-sizing: border-box;
+}
+
+.stores-app a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.stores-app a:hover {
+  text-decoration: underline;
+}
+
+.stores-main {
+  width: min(1180px, 90%);
+  margin: 36px auto;
+  padding: 0 0 24px;
+}
+
+.stores-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.stores-panel {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.stores-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 26px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stores-panel-heading h2 {
+  margin: 0 0 6px;
+  font-size: 21px;
+  line-height: 1.5;
+}
+
+.stores-panel-heading p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ボタン */
+
+.stores-primary-button {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--color-primary);
+  border-radius: 7px;
+  color: #fff;
+  background: var(--color-primary);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.stores-primary-button:hover:not(:disabled) {
+  color: #fff;
+  background: var(--color-primary-hover);
+}
+
+.stores-primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.stores-refresh-button,
+.stores-edit-link,
+.stores-cancel-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-small);
+  color: #45664b;
+  background: #fff;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.stores-refresh-button {
+  margin-left: auto;
+}
+
+.stores-refresh-button:hover:not(:disabled),
+.stores-edit-link:hover:not(:disabled),
+.stores-cancel-button:hover:not(:disabled) {
+  background: var(--color-primary-light);
+}
+
+.stores-refresh-button:disabled,
+.stores-edit-link:disabled,
+.stores-cancel-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.stores-close-button {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-small);
+  color: var(--color-text-secondary);
+  background: #fff;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.stores-close-button:hover:not(:disabled) {
+  background: var(--color-page);
+}
+
+.stores-text-button {
+  padding: 0;
+  border: 0;
+  color: var(--color-primary);
+  background: transparent;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 登録件数 */
+
+.stores-summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 22px 26px;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.stores-summary strong {
+  color: var(--color-text);
+  font-size: 25px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 店舗一覧テーブル */
+
+.stores-table-wrapper {
+  overflow-x: auto;
+  padding: 0 20px 24px;
+}
+
+.stores-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.stores-table th {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  background: #f7f9f6;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stores-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #edf0eb;
+  vertical-align: middle;
+}
+
+.stores-table tbody tr:last-child > td {
+  border-bottom: 0;
+}
+
+.stores-table tbody tr:hover > td {
+  background: #fbfdfb;
+}
+
+.stores-table .stores-edit-cell {
+  padding: 0 !important;
+  background: #f7faf7;
+}
+
+.stores-name {
+  min-width: 150px;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* 店舗ステータス */
+
+.stores-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stores-status-active {
+  color: #246943;
+  background: #e5f5e9;
+}
+
+.stores-status-inactive {
+  color: #68716a;
+  background: #edf0ed;
+}
+
+/* 登録・編集フォーム */
+
+.stores-create-panel {
+  margin: 22px 26px;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: #fbfcfa;
+}
+
+.stores-create-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.stores-create-heading h3 {
+  margin: 0 0 6px;
+  color: var(--color-text);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.stores-create-heading p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.stores-create-form {
+  display: grid;
+  gap: 20px;
+}
+
+.stores-form-field {
+  display: grid;
+  gap: 7px;
+}
+
+.stores-form-field label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #455449;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.stores-required {
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--color-danger);
+  background: var(--color-danger-light);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.stores-form-field input,
+.stores-form-field select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px 13px;
+  border: 1px solid var(--color-input-border);
+  border-radius: 7px;
+  color: var(--color-text);
+  background: #fff;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.stores-form-field input:focus,
+.stores-form-field select:focus {
+  border-color: #578363;
+  box-shadow: 0 0 0 3px rgb(87 131 99 / 14%);
+}
+
+.stores-form-field input:disabled,
+.stores-form-field select:disabled {
+  background: #f0f3f0;
+  cursor: not-allowed;
+}
+
+.stores-form-field input::placeholder {
+  color: #a0a9a0;
+}
+
+.stores-form-field > p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.stores-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.stores-edit-panel {
+  padding: 24px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: #fbfcfa;
+}
+
+.stores-edit-panel .stores-create-heading {
+  margin-bottom: 22px;
+}
+
+/* メッセージ */
+
+.stores-success {
+  margin: 18px 26px 0;
+  padding: 12px 16px;
+  border: 1px solid #c5e2cd;
+  border-radius: var(--radius-medium);
+  color: #24663d;
+  background: #f0faf2;
+  font-size: 13px;
+}
+
+.stores-error {
+  margin: 18px 0;
+  padding: 14px 16px;
+  border: 1px solid #efd1d1;
+  border-radius: var(--radius-medium);
+  color: #a53636;
+  background: var(--color-danger-light);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.stores-error p {
+  margin: 0 0 12px;
+  overflow-wrap: anywhere;
+}
+
+.stores-error button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid #e3bcbc;
+  border-radius: var(--radius-small);
+  color: var(--color-danger);
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+.stores-form-hint {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.stores-message,
+.stores-empty {
+  padding: 42px 20px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  font-size: 13px;
+}
+
+.stores-empty p {
+  margin: 0 0 8px;
+}
+
+.stores-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+  font-size: 13px;
+}
+
+.stores-footer a {
+  color: var(--color-primary);
+}
+
+/* スマートフォン */
+
+@media (max-width: 640px) {
+  .stores-main {
+    width: 92%;
+    margin-top: 24px;
+  }
+
+  .stores-panel-heading {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .stores-panel-heading .stores-primary-button {
+    width: 100%;
+  }
+
+  .stores-summary {
+    padding: 18px 20px;
+  }
+
+  .stores-table-wrapper {
+    padding: 0 12px 18px;
+  }
+
+  .stores-create-panel {
+    margin: 16px;
+    padding: 18px;
+  }
+
+  .stores-edit-panel {
+    padding: 18px 12px;
+  }
+
+  .stores-edit-panel .stores-form-actions {
+    justify-content: stretch;
+  }
+
+  .stores-edit-panel .stores-form-actions button {
+    flex: 1;
+  }
+
+  .stores-success {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+
+  .stores-footer {
+    flex-direction: column;
+  }
+}

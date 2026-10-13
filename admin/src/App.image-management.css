@@ -1,0 +1,88 @@
+.product-image-manager {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #dfe5df;
+}
+.image-manager-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.image-manager-heading h4 { margin: 0 0 6px; font-size: 1.1rem; }
+.image-manager-heading p { margin: 0; color: #687368; font-size: .9rem; }
+.image-count {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #edf3eb;
+  color: #35583a;
+  font-weight: 700;
+  font-size: .9rem;
+}
+.product-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.product-image-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #dfe5df;
+  border-radius: 10px;
+  background: #fff;
+}
+.product-image-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f5f6f3;
+}
+.product-image-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px;
+  font-size: .82rem;
+}
+.product-image-card-footer span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.image-delete-button { padding: 5px 9px; flex: 0 0 auto; }
+.image-empty { color: #687368; font-size: .9rem; }
+.image-upload-area {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+.image-file-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px dashed #8ba28b;
+  border-radius: 8px;
+  background: #f7faf5;
+  color: #315638;
+  font-weight: 600;
+}
+.image-file-label input { max-width: 230px; }
+.image-upload-help { color: #687368; font-size: .88rem; }
+.image-preview-area { margin-top: 20px; }
+.image-preview-area h5 { margin: 0; font-size: .95rem; }
+.image-error { color: #a52828; margin-top: 12px; }
+.image-success { color: #28663b; margin-top: 12px; }
+@media (max-width: 600px) {
+  .image-manager-heading { flex-direction: column; }
+  .product-image-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .image-file-label { align-items: flex-start; flex-direction: column; }
+  .image-file-label input { max-width: 100%; }
+}
